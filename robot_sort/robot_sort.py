@@ -96,15 +96,84 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # TODO first:
+        # need to remove None item from robot, or compare items will always return none
+        self.swap_item()
+        # # move from position 0 to position 1 to start comparing values to values
+        self.move_right()
+        print("light:", self.light_is_on())
+        print("can move right?:", self.can_move_right())
+        print("can move left?:", self.can_move_left())
+        print("item in hand:", self._item)
+        print("position:", self._position)
+
+        # traverse array
+        # for loop? but how??
+
+        # did something get swapped? Light off with no swaps left = sorted list
+        while self.light_is_on() == True:
+            self.sort()
+
+            print("Compare:", self.compare_item())
+            if self.can_move_right() == True:
+                self.compare_item()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                    self.move_right()
+                else:
+                    self.move_right()
+
+            else:
+                # end of array, cannot move right anymore, largest value to be dropped at end
+                self.compare_item()
+                if self.compare_item() == 1:
+                    self.swap_item()
+        
+        
+
+
+
+
+    # TODO Bubblesort 
+    # TODO while move right = true?
+    # ? n = len(arr) 
+    # Traverse through all array elements 
+    # ? for i in range(n): 
+
+        # TODO light is not on
+        # ? swapped = False
+
+        # Last i elements are already 
+        #  in place 
+        # TODO ????
+        # ? for j in range(0, n-i-1): 
+
+            # traverse the array from 0 to 
+            # n-i-1. Swap if the element  
+            # found is greater than the 
+            # next element 
+
+            # TODO compare
+            # TODO swap if compare = 1
+            # ? if arr[j] > arr[j+1] : 
+            # ?    arr[j], arr[j+1] = arr[j+1], arr[j] 
+                # TODO set light to on
+                # ? swapped = True
+
+        # IF no two elements were swapped 
+        # by inner loop, then break 
+        # TODO if nothing is swapped break
+        # ? if swapped == False: 
+        # ?    break
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [2, 5, 7, 1, 3, 4, 9, 8, 6]
 
     robot = SortingRobot(l)
 
