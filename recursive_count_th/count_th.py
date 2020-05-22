@@ -7,4 +7,10 @@ def count_th(word):
     
     # TBC
     
-    pass
+    if len(word) <= 1:
+        return 0
+    
+    # The find() method finds the index of first occurrence of the specified value
+    word.find('th')
+    
+    count_th()
