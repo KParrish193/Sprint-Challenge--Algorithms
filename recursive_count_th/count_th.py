@@ -18,7 +18,3 @@ def count_th(word):
 
 word = 'ththsafszdfnth'
 print(count_th(word))
-
-
-
-    
