@@ -1,14 +1,20 @@
 #### Please add your answers to the ***Analysis of  Algorithms*** exercises here.
 
 ## Exercise I
-
-a)
-
-
-b)
+Give an analysis of the running time of each snippet of
+pseudocode with respect to the input size n of each of the following:
 
 
-c)
+a) exponential O(n^3)
+    the larger n gets the longer the code runs?
+
+b) linearithmic (O(n)*(O(log(n)))
+    the whole piece from j = 1 to j*=2 is logarithmic, and the additional for loop is O(n)
+
+c) polynomial O(n^2)
+    each run through doubles the runtime/space due to calculating (bunnyEars(bunnies-1) in each call of bunnyEars()
+
+
 
 ## Exercise II
 Assumptions: 
