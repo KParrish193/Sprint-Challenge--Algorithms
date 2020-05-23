@@ -96,17 +96,89 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        self.set_light_on()
+        # did something get swapped? Light off with no swaps left = sorted list
+        while self.light_is_on():
+            self.set_light_off()
+            
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()    
+            self.swap_item()
+            
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+            self.swap_item()
+
+    # set_light_on
+    # while light on = bot powered
+    #   light_off
+    #   swap(Because holding none)  
+
+        # while can move right is true
+        #   move right
+        #   compare item in hand to item in list at next position
+            # if item in hand is greater
+                # swap
+                # turn_light_on
+        #   move left
+        #   swap
+        #   move-right
+    
+        # if light_is_on = False
+            # break
+
+    # TODO Bubblesort 
+    # TODO while move right = true?
+    # ? n = len(arr) 
+    # Traverse through all array elements 
+    # ? for i in range(n): 
+
+        # TODO light is not on
+        # ? swapped = False
+
+        # Last i elements are already 
+        #  in place 
+        # TODO ????
+        # ? for j in range(0, n-i-1): 
+
+            # traverse the array from 0 to 
+            # n-i-1. Swap if the element  
+            # found is greater than the 
+            # next element 
+
+            # TODO compare
+            # TODO swap if compare = 1
+            # ? if arr[j] > arr[j+1] : 
+            # ?    arr[j], arr[j+1] = arr[j+1], arr[j] 
+                # TODO set light to on
+                # ? swapped = True
+
+        # IF no two elements were swapped 
+        # by inner loop, then break 
+        # TODO if nothing is swapped break
+        # ? if swapped == False: 
+        # ?    break
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    
+    l = [2, 5, 7, 1, 3, 4, 9, 8, 6]        
 
     robot = SortingRobot(l)
 
     robot.sort()
     print(robot._list)
+    
