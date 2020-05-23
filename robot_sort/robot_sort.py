@@ -96,12 +96,7 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # TODO first:
-        # need to remove None item from robot, or compare items will always return none
-        # # # move from position 0 to position 1 to start comparing values to values
 
-        # traverse array
-        # for loop? but how??
         self.set_light_on()
         # did something get swapped? Light off with no swaps left = sorted list
         while self.light_is_on():
